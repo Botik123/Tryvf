@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Регистрация — Платформа онлайн-обучения</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="centered-layout">
     <div class="login-container">
         <div class="login-box">
             <h1 class="login-title">Регистрация</h1>

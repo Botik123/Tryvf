@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Вход — Платформа онлайн-обучения</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="centered-layout">
     <div class="login-container">
         <div class="login-box">
             <h1 class="login-title">Вход в аккаунт</h1>
