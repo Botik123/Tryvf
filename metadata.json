@@ -1,0 +1,6 @@
+{
+  "name": "Online School Platform",
+  "description": "A comprehensive online learning platform with an admin panel for course management and a REST API for students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

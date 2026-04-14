@@ -1,11 +1,35 @@
-<div align="center">
+# Платформа онлайн-обучения (PHP + MySQL)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Этот проект реализован на чистом PHP согласно ТЗ Модуля Б.
 
-  <h1>Built with AI Studio</h2>
+## Структура проекта
+- `index.php` — Страница входа.
+- `register.php` — Регистрация студента.
+- `db.php` — Настройки базы данных и общие функции.
+- `style.css` — Стили приложения.
+- `admin/` — Панель администратора.
+  - `courses.php` — Список курсов.
+  - `course-edit.php` — Создание/редактирование курса.
+  - `lessons.php` — Уроки курса.
+  - `students.php` — Список студентов и сертификаты.
+- `school-api/` — REST API для студентов.
+- `uploads/` — Папка для обложек курсов.
+- `database.sql` — Схема базы данных.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Установка
+1. Создайте базу данных MySQL (например, `online_school`).
+2. Импортируйте файл `database.sql`.
+3. Настройте параметры подключения в `db.php` ($host, $db, $user, $pass).
+4. Убедитесь, что на сервере включено расширение `GD` для обработки изображений.
+5. Убедитесь, что папка `uploads` доступна для записи.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Данные для входа (Админ)
+- **Email:** admin@edu.com
+- **Пароль:** course2025
 
-</div>
+## API Эндпоинты
+- `POST /school-api/registr` — Регистрация.
+- `POST /school-api/auth` — Авторизация.
+- `GET /school-api/courses` — Список курсов.
+- `POST /school-api/courses/{id}/buy` — Запись на курс.
+- `POST /school-api/payment-webhook` — Вебхук оплаты.

@@ -1,0 +1,226 @@
+/* Общие стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e6f7e6, #fff8e1); /* Светло-зеленый → светло-желтый */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.login-box {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  text-align: center;
+}
+
+.login-title {
+  color: #2e7d32; /* Темно-зелёный */
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #c8e6c9; /* Светло-зеленая рамка */
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #81c784; /* Более насыщенный зеленый при фокусе */
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffd54f; /* Ярко-жёлтый */
+  color: #1b5e20; /* Тёмно-зелёный текст */
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #ffca28; /* Чуть темнее при наведении */
+  transform: translateY(-2px);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+.forgot-password,
+.signup-link {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+.forgot-password a,
+.signup-link a {
+  color: #689f38; /* Зелено-оливковый акцент */
+  text-decoration: none;
+}
+
+.forgot-password a:hover,
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Простая админ-навигация */
+.admin-nav {
+  background-color: #4caf50; /* Средний зелёный */
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 20px;
+  display: inline-block;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 16px;
+  display: block;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  background-color: #81c784; /* Светло-зелёный при наведении */
+}
+
+/* Активная ссылка */
+.nav-links a.active {
+  background-color: #ffd54f; /* Жёлтый */
+  color: #1b5e20; /* Тёмно-зелёный текст */
+}
+
+.admin-container {
+    margin-top: 80px;
+    width: 100%;
+    max-width: 1200px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary { background: #4caf50; color: white; }
+.btn-danger { background: #f44336; color: white; }
+.btn-warning { background: #ff9800; color: white; }
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background: #4caf50;
+    color: white;
+    border-color: #4caf50;
+}
+
+/* Мобильная версия */
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+  }
+  .nav-logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #388e3c; /* Чуть тёмнее для логотипа */
+  }
+}
