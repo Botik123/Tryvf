@@ -12,7 +12,7 @@ if (!isStudent()) {
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="admin-nav">
+    <nav class="admin-nav student-nav">
         <div class="nav-logo">EduStudent</div>
         <ul class="nav-links">
             <li><a href="courses.php">Все курсы</a></li>

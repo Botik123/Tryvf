@@ -30,9 +30,9 @@ $myCourses = $stmt->fetchAll();
             <td>
                 <?php 
                 $status_map = [
-                    'pending' => '<span style="color: orange;">Ожидает оплаты</span>',
-                    'success' => '<span style="color: green;">Оплачено</span>',
-                    'failed' => '<span style="color: red;">Ошибка оплаты</span>'
+                    'pending' => '<span class="badge badge-pending">Ожидает оплаты</span>',
+                    'success' => '<span class="badge badge-success">Оплачено</span>',
+                    'failed' => '<span class="badge badge-failed">Ошибка оплаты</span>'
                 ];
                 echo $status_map[$order['status']];
                 ?>
