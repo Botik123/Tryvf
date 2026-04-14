@@ -12,6 +12,7 @@ $myCourses = $stmt->fetchAll();
 
 <h1>Мои курсы</h1>
 
+<div class="table-responsive">
 <table>
     <thead>
         <tr>
@@ -50,5 +51,6 @@ $myCourses = $stmt->fetchAll();
         <?php endforeach; ?>
     </tbody>
 </table>
+</div>
 
 <?php require_once 'footer.php'; ?>

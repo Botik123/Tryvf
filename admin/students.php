@@ -33,6 +33,7 @@ $courses = $pdo->query("SELECT id, name FROM courses")->fetchAll();
     </select>
 </form>
 
+<div class="table-responsive">
 <table>
     <thead>
         <tr>
@@ -70,5 +71,6 @@ $courses = $pdo->query("SELECT id, name FROM courses")->fetchAll();
         <?php endforeach; ?>
     </tbody>
 </table>
+</div>
 
 <?php require_once 'footer.php'; ?>

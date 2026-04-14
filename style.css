@@ -7,15 +7,15 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #e6f7e6, #fff8e1); /* Светло-зеленый → светло-желтый */
+  background: linear-gradient(135deg, #e6f7e6, #fff8e1);
   min-height: 100vh;
-  padding: 0;
   margin: 0;
-  display: block;
+  display: block; /* Гарантируем блочную модель для body */
 }
 
+/* Центрирование для логина и регистрации */
 .centered-layout {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -24,7 +24,7 @@ body {
 
 .login-container {
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
 }
 
 .login-box {
@@ -32,255 +32,233 @@ body {
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   padding: 32px;
-  text-align: center;
+  width: 100%;
 }
 
-.login-title {
-  color: #2e7d32; /* Темно-зелёный */
-  margin-bottom: 24px;
-  font-size: 28px;
-  font-weight: 600;
+/* Навигация (Хедер) */
+.admin-nav {
+  background-color: #4caf50;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
 }
 
+.nav-logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  height: 100%;
+}
+
+.nav-links li {
+  height: 100%;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.nav-links a.active {
+  background-color: #ffd54f;
+  color: #1b5e20;
+}
+
+/* Контейнер контента */
+.admin-container {
+    margin: 80px auto 40px; /* 80px сверху чтобы не перекрывал хедер */
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    min-height: 400px;
+}
+
+/* Таблицы */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Кнопки */
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+
+.btn:hover { opacity: 0.9; }
+.btn-primary { background: #4caf50; color: white; }
+.btn-danger { background: #f44336; color: white; }
+.btn-warning { background: #ff9800; color: white; }
+
+/* Формы */
 .form-group {
   margin-bottom: 20px;
-  text-align: left;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 6px;
-  color: #555;
+  margin-bottom: 8px;
+  color: #333;
   font-weight: 500;
 }
 
 .form-group input, .form-group textarea, .form-group select {
   width: 100%;
   padding: 12px;
-  border: 2px solid #c8e6c9; /* Светло-зеленая рамка */
+  border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 16px;
-  transition: border-color 0.3s;
 }
 
-.form-group input:focus {
-  outline: none;
-  border-color: #81c784; /* Более насыщенный зеленый при фокусе */
-}
-
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #ffd54f; /* Ярко-жёлтый */
-  color: #1b5e20; /* Тёмно-зелёный текст */
-  border: none;
-  border-radius: 6px;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.login-btn:hover {
-  background-color: #ffca28; /* Чуть темнее при наведении */
-  transform: translateY(-2px);
-}
-
-.login-btn:active {
-  transform: translateY(0);
-}
-
-.forgot-password,
-.signup-link {
-  margin-top: 16px;
-  font-size: 14px;
-  color: #666;
-}
-
-.forgot-password a,
-.signup-link a {
-  color: #689f38; /* Зелено-оливковый акцент */
-  text-decoration: none;
-}
-
-.forgot-password a:hover,
-.signup-link a:hover {
-  text-decoration: underline;
-}
-
-/* Простая админ-навигация */
-.admin-nav {
-  background-color: #4caf50; /* Средний зелёный */
-  padding: 0;
-  margin: 0;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.nav-logo {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 12px 20px;
-  display: inline-block;
-}
-
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.nav-links li {
-  margin: 0;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  padding: 12px 16px;
-  display: block;
-  font-size: 15px;
-}
-
-.nav-links a:hover {
-  background-color: #81c784; /* Светло-зелёный при наведении */
-}
-
-/* Активная ссылка */
-.nav-links a.active {
-  background-color: #ffd54f; /* Жёлтый */
-  color: #1b5e20; /* Тёмно-зелёный текст */
-}
-
-.admin-container {
-    margin: 80px auto 40px;
-    width: 95%;
-    max-width: 1200px;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
+/* Студенческие карточки */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
     margin-top: 20px;
 }
-
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-th {
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-.btn {
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-}
-
-.btn-primary { background: #4caf50; color: white; }
-.btn-danger { background: #f44336; color: white; }
-.btn-warning { background: #ff9800; color: white; }
-
-.pagination {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.pagination a {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    text-decoration: none;
-    color: #333;
-    border-radius: 4px;
-}
-
-.pagination a.active {
-    background: #4caf50;
-    color: white;
-    border-color: #4caf50;
-}
-
-/* Student Interface Improvements */
-.badge {
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-block;
-}
-.badge-pending { background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; }
-.badge-success { background: #e8f5e9; color: #1b5e20; border: 1px solid #81c784; }
-.badge-failed { background: #ffebee; color: #b71c1c; border: 1px solid #e57373; }
 
 .course-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-.course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
-.student-nav {
-    background-color: #2e7d32 !important;
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-.price-tag {
-    font-size: 22px;
-    font-weight: bold;
+.course-card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card h3 {
+    margin-bottom: 10px;
     color: #2e7d32;
 }
 
-.course-meta {
+.course-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.course-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
     padding-top: 15px;
     border-top: 1px solid #eee;
 }
 
-.lesson-box {
-    border-left: 5px solid #4caf50;
-    margin-bottom: 20px;
-    background: #fff;
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* Статусы */
+.badge {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.badge-pending { background: #fff3e0; color: #e65100; }
+.badge-success { background: #e8f5e9; color: #2e7d32; }
+.badge-failed { background: #ffebee; color: #c62828; }
+
+/* Уроки */
+.lesson-item {
+    background: white;
+    border-left: 4px solid #4caf50;
     padding: 20px;
+    margin-bottom: 20px;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Мобильная версия */
-@media (max-width: 600px) {
-  .nav-links {
-    flex-direction: column;
-  }
-  .nav-logo {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background-color: #388e3c; /* Чуть тёмнее для логотипа */
-  }
+/* Мобильность */
+@media (max-width: 768px) {
+    .admin-nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+    .nav-links a {
+        padding: 10px;
+        height: auto;
+    }
+    .admin-container {
+        margin-top: 120px;
+        width: 95%;
+        padding: 15px;
+    }
 }
+

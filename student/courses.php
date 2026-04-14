@@ -12,21 +12,21 @@ $enrolled = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 <h1>Доступные курсы</h1>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-top: 20px;">
+<div class="course-grid">
     <?php foreach ($courses as $course): ?>
-    <div class="login-box course-card" style="text-align: left; padding: 0; overflow: hidden;">
-        <img src="../uploads/<?php echo $course['img']; ?>" alt="" style="width: 100%; height: 180px; object-fit: cover;">
-        <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column;">
-            <h3 style="color: #2e7d32; margin-bottom: 10px; font-size: 20px;"><?php echo htmlspecialchars($course['name']); ?></h3>
-            <p style="font-size: 14px; color: #666; margin-bottom: 15px; flex-grow: 1;"><?php echo htmlspecialchars($course['description']); ?></p>
+    <div class="course-card">
+        <img src="../uploads/<?php echo $course['img']; ?>" alt="">
+        <div class="course-card-content">
+            <h3><?php echo htmlspecialchars($course['name']); ?></h3>
+            <p><?php echo htmlspecialchars($course['description']); ?></p>
             
             <div style="font-size: 13px; color: #555; margin-bottom: 15px;">
                 <div style="margin-bottom: 5px;">📅 <strong>Старт:</strong> <?php echo date('d.m.Y', strtotime($course['start_date'])); ?></div>
                 <div>⏱️ <strong>Длительность:</strong> <?php echo $course['hours']; ?> ч.</div>
             </div>
 
-            <div class="course-meta">
-                <div class="price-tag"><?php echo number_format($course['price'], 0, '.', ' '); ?> ₽</div>
+            <div class="course-card-footer">
+                <div class="price"><?php echo number_format($course['price'], 0, '.', ' '); ?> ₽</div>
                 
                 <?php if (in_array($course['id'], $enrolled)): ?>
                     <a href="lessons.php?course_id=<?php echo $course['id']; ?>" class="btn btn-primary">Обучение</a>

@@ -156,13 +156,20 @@ if (preg_match('/^\/courses\/(\d+)\/buy$/', $path, $matches) && $method === 'POS
 }
 
 if ($path === '/payment-webhook' && $method === 'POST') {
-    $data = json_decode(file_get_contents('php://input'), true);
+    $raw = file_get_contents('php://input');
+    $data = json_decode($raw, true);
+    
     $order_id = $data['order_id'] ?? 0;
     $status = $data['status'] ?? '';
+
+    if (!$order_id) {
+        jsonResponse(['message' => 'Order ID required'], 422);
+    }
 
     $newStatus = ($status === 'success') ? 'success' : 'failed';
     $stmt = $pdo->prepare("UPDATE orders SET status = ? WHERE id = ?");
     $stmt->execute([$newStatus, $order_id]);
+    
     jsonResponse(null, 204);
 }
 

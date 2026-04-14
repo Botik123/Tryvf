@@ -22,6 +22,7 @@ $courses = $stmt->fetchAll();
     <a href="course-edit.php" class="btn btn-primary">Добавить курс</a>
 </div>
 
+<div class="table-responsive">
 <table>
     <thead>
         <tr>
@@ -52,6 +53,7 @@ $courses = $stmt->fetchAll();
         <?php endforeach; ?>
     </tbody>
 </table>
+</div>
 
 <div class="pagination">
     <?php for ($i = 1; $i <= $totalPages; $i++): ?>
