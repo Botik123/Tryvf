@@ -25,7 +25,7 @@ $course_name = $stmt->fetchColumn();
 
 <div style="margin-top: 20px;">
     <?php foreach ($lessons as $lesson): ?>
-    <div class="lesson-box">
+    <div class="lesson-item">
         <h2 style="color: #2e7d32; margin-bottom: 15px;"><?php echo htmlspecialchars($lesson['title']); ?></h2>
         <div style="margin-bottom: 20px; line-height: 1.6;">
             <?php echo nl2br(htmlspecialchars($lesson['content'])); ?>
