@@ -40,7 +40,7 @@ $order_id = $_GET['order_id'] ?? 0;
             if (response.status === 204) {
                 document.getElementById('msg').innerText = 'Запрос отправлен. Статус: ' + status;
                 setTimeout(() => {
-                    window.location.href = 'index.php';
+                    window.location.href = 'student/my-courses.php';
                 }, 2000);
             }
         }
